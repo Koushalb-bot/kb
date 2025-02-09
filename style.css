@@ -1,32 +1,94 @@
-/* Add some basic styles and animations */
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    text-align: center;
-    padding: 20px;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px;
     background-color: #4CAF50;
-    color: white;
     border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-#question-container {
-    margin: 20px;
+/* Page transitions */
+#quiz-page,
+#thank-you-page {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
+#quiz-page.active,
+#thank-you-page.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Colorful background for pages */
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Welcome page */
+#welcome-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome-page h1 {
+    font-size: 3rem;
+    color: #fff;
+}
+
+#welcome-page button {
+    font-size: 1.5rem;
+}
+
+/* Thank you page */
 #thank-you-page {
-    font-size: 20px;
-    color: #ff3366;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#thank-you-page h2 {
+    font-size: 2.5rem;
+    color: #ff69b4; /* Pink for the thank you message */
+}
+
+/* Animations for the buttons */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animations for question appearance */
+.question-container {
+    animation: fadeIn 1s ease-in-out;
+}
+
+#options-container button {
+    animation: fadeIn 1s ease-in-out;
 }
